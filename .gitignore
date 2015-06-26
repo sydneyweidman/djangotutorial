@@ -53,7 +53,6 @@ coverage.xml
 manage.py
 /*/settings/dev.py
 /*/settings/prod.py
-/*/settings/active.py
 
 # Sphinx documentation
 docs/_build/
