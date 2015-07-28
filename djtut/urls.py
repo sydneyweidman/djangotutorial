@@ -9,7 +9,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^polls/', include(polls_urls))
+    url(r'^polls/', include(polls_urls, namespace='polls')),
 ]
 
 if settings.DEBUG:

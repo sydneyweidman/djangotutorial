@@ -51,8 +51,8 @@ coverage.xml
 *.log
 *.sqlite3
 manage.py
-/*/settings/dev.py
-/*/settings/prod.py
+/*/settings/dev*.py
+/*/settings/prod*.py
 
 # Sphinx documentation
 docs/_build/
