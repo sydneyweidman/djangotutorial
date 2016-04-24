@@ -1,8 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
-from django.shortcuts import get_object_or_404, render_to_response, render
-from .models import Choice, Question
+from django.shortcuts import get_object_or_404, render
+from polls.models import Choice, Question
 
 # Create your views here.
 
@@ -13,12 +13,13 @@ def vote(request, question_id):
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         return render(request, "polls/detail.html",
-                      {'question':p,
-                      'error_message':"You didn't select a choice",})
+                      {'question': p,
+                       'error_message': "You didn't select a choice", })
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return HttpResponseRedirect(reverse("polls:results", args=(question_id,)))
+        return HttpResponseRedirect(reverse("polls:results",
+                                            args=(question_id, )))
 
 
 class IndexView(generic.ListView):
